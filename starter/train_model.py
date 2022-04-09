@@ -61,8 +61,3 @@ pred_test = inference(model, X_test)
 logger.info("Performance Metrics")
 precision, recall, fbeta = compute_model_metrics(y_test, pred_test)
 logger.info("Test precision: %s", precision)
-
-if __name__ == "__main__":
-    path = os.getcwd()
-    print(path)
-    print(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))

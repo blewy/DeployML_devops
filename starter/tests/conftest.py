@@ -8,7 +8,6 @@ def input_data():
     # For larger datasets, here we would use a testing sub-sample.
     root_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
     data = pd.read_csv(os.path.join(root_path, 'data') + "/census_clean.csv")
-    print(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
     return data
 
 
@@ -26,8 +25,3 @@ def categorical_features():
         "native-country",
     ]
     return cat_features
-
-if __name__ == "__main__":
-    path = os.getcwd()
-    print(path)
-    print(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
