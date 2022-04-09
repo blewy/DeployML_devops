@@ -1,3 +1,6 @@
 /census.csv
 .ipynb_checkpoints
 /notebooks/.ipynb_checkpoints/
+starter/__pycache__
+starter/ml/__pycache__
+notebooks/.ipynb_checkpoints/
