@@ -14,7 +14,7 @@ def test_process_data(data,categorical_features):
         dframe = process_data(data, categorical_features=categorical_features, label='salary', training=True, encoder=None,
                               lb=None)
         assert dframe.shape[0] > 0
-        assert dframe.shape[1] > 0ß
+        assert dframe.shape[1] > 0
         logging.info("Testing import_data: SUCCESS")
     except FileNotFoundError as err:
         logging.error("ERROR Testing import_data: The file wasn't found: %s", err)
