@@ -4,4 +4,4 @@
 starter/__pycache__
 starter/ml/__pycache__
 notebooks/.ipynb_checkpoints/
-tests/__pycache__/
+starter/tests/__pycache__/

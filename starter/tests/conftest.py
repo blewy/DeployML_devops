@@ -6,7 +6,7 @@ import pandas as pd
 def input_data():
     # For larger datasets, here we would use a testing sub-sample.
     root_path = os.path.abspath(os.pardir)
-    data = pd.read_csv(os.path.join(root_path, 'DeployProject', 'data') + "/census_clean.csv")
+    data = pd.read_csv(os.path.join(root_path, 'data') + "/census_clean.csv")
     return data
 
 @pytest.fixture()
