@@ -19,7 +19,7 @@ logger = logging.getLogger()
 # Add code to load in the data.
 logger.info("Importing Data")
 root_path = os.path.abspath(os.pardir)
-data = pd.read_csv(os.path.join(root_path, 'DeployProject', 'data') + "/census_clean.csv")
+data = pd.read_csv(os.path.join(root_path, 'data') + "/census_clean.csv")
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 logger.info("Spliting Data")
@@ -47,8 +47,8 @@ logger.info("Train Model")
 model = train_model(X_train, y_train)
 
 logger.info("Saving model artifact")
-filename = 'model/gbm_model.sav'
-pickle.dump(model, open(filename, 'wb'))
+filename = 'gbm_model.sav'
+pickle.dump(model, open(os.path.join(root_path, 'model') + filename, 'wb'))
 
 # Score model
 logger.info("Scoring")
@@ -61,3 +61,7 @@ pred_test = inference(model, X_test)
 logger.info("Performance Metrics")
 precision, recall, fbeta = compute_model_metrics(y_test, pred_test)
 logger.info("Test precision: %s", precision)
+
+if __name__ == "__main__":
+    path = os.getcwd()
+    print(os.path.abspath(os.path.join(path, os.pardir)))

@@ -6,9 +6,9 @@ logger = logging.getLogger()
 
 
 def test_process_data(input_data, categorical_features):
-    '''
+    """
     test data import - this example is completed for you to assist with the other test functions
-    '''
+    """
     try:
         X, y, encoder, lb = process_data(input_data, categorical_features=categorical_features,
                                          label='salary', training=True, encoder=None, lb=None)
