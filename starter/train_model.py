@@ -10,9 +10,8 @@ import pandas as pd
 import logging
 import pickle
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score
-from sklearn.ensemble import GradientBoostingClassifier
 from ml.data import process_data
+from ml.model import train_model, inference, compute_model_metrics
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
@@ -45,8 +44,7 @@ X_train, y_train, encoder, lb = process_data(
 
 # Train and save a model.
 logger.info("Train Model")
-model = GradientBoostingClassifier(n_estimators=300, learning_rate=0.01, max_features=3, max_depth=3, random_state=0)
-model.fit(X_train, y_train)
+model = train_model(X_train, y_train)
 
 logger.info("Saving model artifact")
 filename = 'model/gbm_model.sav'
@@ -55,11 +53,11 @@ pickle.dump(model, open(filename, 'wb'))
 # Score model
 logger.info("Scoring")
 X_test, y_test, encoder_test, lb_test = process_data(
-    train, categorical_features=cat_features, label="salary", training=False, encoder=encoder
+    test, categorical_features=cat_features, label="salary", training=False, encoder=encoder, lb=lb
 )
-logger.info("Getting test Predictions")
-pred_test = model.predict_proba(X_test)[:, 1]
-print(pred_test)
-logger.info("Scoring")
-score = roc_auc_score(y_test, pred_test, average="macro", multi_class="ovo")
-logger.info("Test AUC: %s", score)
+logger.info("Getting Test Predictions")
+pred_test = inference(model, X_test)
+
+logger.info("Performace Metrics")
+precision, recall, fbeta = compute_model_metrics(y_test, pred_test)
+logger.info("Test precision: %s", precision)
