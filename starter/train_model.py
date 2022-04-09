@@ -58,6 +58,6 @@ X_test, y_test, encoder_test, lb_test = process_data(
 logger.info("Getting Test Predictions")
 pred_test = inference(model, X_test)
 
-logger.info("Performace Metrics")
+logger.info("Performance Metrics")
 precision, recall, fbeta = compute_model_metrics(y_test, pred_test)
 logger.info("Test precision: %s", precision)
