@@ -25,3 +25,7 @@ def categorical_features():
         "native-country",
     ]
     return cat_features
+
+@pytest.fixture()
+def model_encoders():
+    return cat_features

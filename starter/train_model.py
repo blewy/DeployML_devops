@@ -46,9 +46,13 @@ X_train, y_train, encoder, lb = process_data(
 logger.info("Train Model")
 model = train_model(X_train, y_train)
 
-logger.info("Saving model artifact")
-filename = '/gbm_model.sav'
+logger.info("Saving model artifacts")
+filename = '/gbm_model.pickle'
 pickle.dump(model, open(os.path.join(root_path, 'model') + filename, 'wb'))
+filename = '/model_encoder.pickle'
+pickle.dump(encoder, open(os.path.join(root_path, 'model') + filename, 'wb'))
+filename = '/label_encoder.pickle'
+pickle.dump(lb, open(os.path.join(root_path, 'model') + filename, 'wb'))
 
 # Score model
 logger.info("Scoring")

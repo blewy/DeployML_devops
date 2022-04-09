@@ -1,0 +1,4 @@
+outs:
+- md5: 4adfeaa843a3e1d8752f82c9995d6b01
+  size: 360960
+  path: gbm_model.pickle
