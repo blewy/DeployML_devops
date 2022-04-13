@@ -1,0 +1,124 @@
+Performance Metrics for slice Ocupation 
+
+Feature Class: ?
+occupation precision: 1.0000
+occupation recall: 0.1395
+occupation fbeta: 0.2449
+---------------- 
+Feature Class: Other-service
+occupation precision: 1.0000
+occupation recall: 0.0000
+occupation fbeta: 0.0000
+---------------- 
+Feature Class: Adm-clerical
+occupation precision: 1.0000
+occupation recall: 0.0374
+occupation fbeta: 0.0721
+---------------- 
+Feature Class: Machine-op-inspct
+occupation precision: 1.0000
+occupation recall: 0.0208
+occupation fbeta: 0.0408
+---------------- 
+Feature Class: Sales
+occupation precision: 0.9412
+occupation recall: 0.1448
+occupation fbeta: 0.2510
+---------------- 
+Feature Class: Prof-specialty
+occupation precision: 0.8921
+occupation recall: 0.3573
+occupation fbeta: 0.5103
+---------------- 
+Feature Class: Exec-managerial
+occupation precision: 0.8807
+occupation recall: 0.4155
+occupation fbeta: 0.5647
+---------------- 
+Feature Class: Transport-moving
+occupation precision: 1.0000
+occupation recall: 0.0328
+occupation fbeta: 0.0635
+---------------- 
+Feature Class: Craft-repair
+occupation precision: 1.0000
+occupation recall: 0.0363
+occupation fbeta: 0.0700
+---------------- 
+Feature Class: Tech-support
+occupation precision: 1.0000
+occupation recall: 0.0893
+occupation fbeta: 0.1639
+---------------- 
+Feature Class: Farming-fishing
+occupation precision: 1.0000
+occupation recall: 0.0741
+occupation fbeta: 0.1379
+---------------- 
+Feature Class: Handlers-cleaners
+occupation precision: 1.0000
+occupation recall: 0.0000
+occupation fbeta: 0.0000
+---------------- 
+Feature Class: Protective-serv
+occupation precision: 1.0000
+occupation recall: 0.0278
+occupation fbeta: 0.0541
+---------------- 
+Feature Class: Priv-house-serv
+occupation precision: 1.0000
+occupation recall: 0.0000
+occupation fbeta: 0.0000
+---------------- 
+Feature Class: Armed-Forces
+occupation precision: 1.0000
+occupation recall: 1.0000
+occupation fbeta: 1.0000
+---------------- 
+Performance Metrics for slice workclass 
+
+Feature Class: ?
+workclass precision: 1.0000
+workclass recall: 0.1395
+workclass fbeta: 0.2449
+---------------- 
+Feature Class: Private
+workclass precision: 0.9254
+workclass recall: 0.1815
+workclass fbeta: 0.3034
+---------------- 
+Feature Class: State-gov
+workclass precision: 0.9200
+workclass recall: 0.3710
+workclass fbeta: 0.5287
+---------------- 
+Feature Class: Local-gov
+workclass precision: 0.7941
+workclass recall: 0.2432
+workclass fbeta: 0.3724
+---------------- 
+Feature Class: Self-emp-inc
+workclass precision: 0.8667
+workclass recall: 0.4522
+workclass fbeta: 0.5943
+---------------- 
+Feature Class: Federal-gov
+workclass precision: 0.9333
+workclass recall: 0.2414
+workclass fbeta: 0.3836
+---------------- 
+Feature Class: Self-emp-not-inc
+workclass precision: 0.8611
+workclass recall: 0.2138
+workclass fbeta: 0.3425
+---------------- 
+Feature Class: Never-worked
+workclass precision: 1.0000
+workclass recall: 1.0000
+workclass fbeta: 1.0000
+---------------- 
+Feature Class: Without-pay
+workclass precision: 1.0000
+workclass recall: 1.0000
+workclass fbeta: 1.0000
+---------------- 

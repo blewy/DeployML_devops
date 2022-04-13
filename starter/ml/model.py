@@ -40,9 +40,9 @@ def compute_model_metrics(y, preds):
     recall : float
     fbeta : float
     """
-    fbeta = fbeta_score(y, preds, beta=1)
-    precision = precision_score(y, preds)
-    recall = recall_score(y, preds)
+    fbeta = fbeta_score(y, preds, beta=1, zero_division=1)
+    precision = precision_score(y, preds, zero_division=1)
+    recall = recall_score(y, preds, zero_division=1)
     return precision, recall, fbeta
 
 
@@ -66,3 +66,16 @@ def inference(model, X, return_prob=False):
         preds = model.predict(X)
 
     return preds
+
+
+def slice_inference(df, X, y, feature, model):
+    """ Function for calculating descriptive stats on slices of the dataset."""
+    for cls in df[feature].unique():
+        idx = (df[feature] == cls)
+        idx_preds = inference(model, X[idx], return_prob=False)
+        precision, recall, fbeta = compute_model_metrics(y[idx], idx_preds)
+        print(f"Feature Class: {cls}")
+        print(f"{feature} precision: {precision:.4f}")
+        print(f"{feature} recall: {recall:.4f}")
+        print(f"{feature} fbeta: {fbeta:.4f}")
+        print(f"---------------- ")

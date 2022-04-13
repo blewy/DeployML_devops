@@ -6,12 +6,13 @@ Script to run the Ml model that allows to predict Salary range
 
 # Add the necessary imports for the starter code.
 import os
+import sys
 import pandas as pd
 import logging
 import pickle
 from sklearn.model_selection import train_test_split
 from ml.data import process_data
-from ml.model import train_model, inference, compute_model_metrics
+from ml.model import train_model, inference, compute_model_metrics, slice_inference
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
@@ -65,3 +66,13 @@ pred_test = inference(model, X_test)
 logger.info("Performance Metrics")
 precision, recall, fbeta = compute_model_metrics(y_test, pred_test)
 logger.info("Test precision: %s", precision)
+
+logger.info("Performance Metrics for slice")
+file_path = '/slice_output.txt'
+
+sys.stdout = open(os.path.join(root_path, 'model') + file_path, "w")
+print("Performance Metrics for slice Ocupation", "\n")
+slice_inference(test, X_test, y_test, "occupation", model)
+print("Performance Metrics for slice workclass", "\n")
+slice_inference(test, X_test, y_test, "workclass", model)
+sys.stdout.close()

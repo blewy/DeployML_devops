@@ -26,6 +26,7 @@ def test_train_model(input_data, categorical_features):
 
     return None
 
+
 def test_trained_model():
     """
     test data import - this example is completed for you to assist with the other test functions
@@ -57,7 +58,7 @@ def test_inference_model(input_data, categorical_features):
         filename = '/label_encoder.pickle'
         label = pickle.load(open(os.path.join(root_path, 'model') + filename, 'rb'))
         X, y, encoder, lb = process_data(input_data, categorical_features=categorical_features,
-                                           label='salary', training=False, encoder=encoder, lb=label)
+                                         label='salary', training=False, encoder=encoder, lb=label)
         pred_test = inference(model, X)
         assert len(pred_test) == X.shape[0]
     except AssertionError as err:

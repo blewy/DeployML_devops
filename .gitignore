@@ -5,3 +5,5 @@ starter/__pycache__
 starter/ml/__pycache__
 notebooks/.ipynb_checkpoints/
 starter/tests/__pycache__/
+/__pycache__/
+
