@@ -67,7 +67,7 @@ class MultipleDataInputs(BaseModel):
                         "capital-gain": 2174,
                         "capital-loss": 0,
                         "hours-per-week": 40,
-                        "native-country": "United-States",
+                        "native-country": "United-States"
                     }
                 ]
             }
@@ -84,7 +84,7 @@ async def say_hello():
     return {"greeting": "Hi, this is the Welcome message for the api!"}
 
 
-@app.post("/prediction")
+@app.post("/predict")
 async def predict(item: MultipleDataInputs):
     input_df = pd.DataFrame(jsonable_encoder(item.inputs))
     data_pred, _, _, _ = process_data(
@@ -98,5 +98,9 @@ async def predict(item: MultipleDataInputs):
             "sex",
             "native-country"], label=None, training=False, encoder=encoder, lb=lb)
 
-    predictions = '<=50k' if model.predict(data_pred) == 0 else '>50k'
+    predictions = '<=50k' if model.predict(data_pred)[0] == 0 else '>50k'
     return {"prediction": predictions}
+
+
+if __name__ == "__main__":
+    print(model.feature_names_in_)
