@@ -36,6 +36,3 @@ def test_get_prediction():
     # assert response.status_code == 200
     # assert response.json() == {"prediction": "<50k"}
 
-
-if __name__ == "__main__":
-    test_get_prediction()
