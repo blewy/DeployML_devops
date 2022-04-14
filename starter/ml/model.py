@@ -78,4 +78,4 @@ def slice_inference(df, X, y, feature, model):
         print(f"{feature} precision: {precision:.4f}")
         print(f"{feature} recall: {recall:.4f}")
         print(f"{feature} fbeta: {fbeta:.4f}")
-        print(f"---------------- ")
+        print("----------------")
