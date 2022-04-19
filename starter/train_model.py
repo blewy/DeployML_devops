@@ -24,7 +24,7 @@ data = pd.read_csv(os.path.join(root_path, 'data') + "/census_clean.csv")
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 logger.info("Spliting Data")
-train, test = train_test_split(data, test_size=0.20)
+train, test = train_test_split(data, test_size=0.20, random_state=0)
 
 cat_features = [
     "workclass",
@@ -40,7 +40,7 @@ logger.info("Preprocessing Data")
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True
 )
-
+logger.info("Trained columns from Data", train.columns)
 # Proces the test data with the process_data function.
 
 # Train and save a model.

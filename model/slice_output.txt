@@ -1,69 +1,69 @@
 Performance Metrics for slice Ocupation 
 
-Feature Class: Craft-repair
+Feature Class: Adm-clerical
 occupation precision: 1.0000
-occupation recall: 0.0500
-occupation fbeta: 0.0952
+occupation recall: 0.0097
+occupation fbeta: 0.0192
+----------------
+Feature Class: Prof-specialty
+occupation precision: 0.8684
+occupation recall: 0.3275
+occupation fbeta: 0.4757
+----------------
+Feature Class: Sales
+occupation precision: 1.0000
+occupation recall: 0.1590
+occupation fbeta: 0.2743
+----------------
+Feature Class: Transport-moving
+occupation precision: 0.5000
+occupation recall: 0.0159
+occupation fbeta: 0.0308
 ----------------
 Feature Class: Other-service
 occupation precision: 1.0000
 occupation recall: 0.0000
 occupation fbeta: 0.0000
 ----------------
-Feature Class: Prof-specialty
-occupation precision: 0.8311
-occupation recall: 0.3565
-occupation fbeta: 0.4990
+Feature Class: Exec-managerial
+occupation precision: 0.9257
+occupation recall: 0.3653
+occupation fbeta: 0.5239
 ----------------
 Feature Class: ?
 occupation precision: 1.0000
-occupation recall: 0.0833
-occupation fbeta: 0.1538
+occupation recall: 0.0750
+occupation fbeta: 0.1395
 ----------------
-Feature Class: Transport-moving
-occupation precision: 0.8750
-occupation recall: 0.0959
-occupation fbeta: 0.1728
-----------------
-Feature Class: Tech-support
+Feature Class: Protective-serv
 occupation precision: 1.0000
-occupation recall: 0.0408
-occupation fbeta: 0.0784
+occupation recall: 0.0465
+occupation fbeta: 0.0889
 ----------------
-Feature Class: Sales
-occupation precision: 0.8857
-occupation recall: 0.1574
-occupation fbeta: 0.2672
+Feature Class: Craft-repair
+occupation precision: 1.0000
+occupation recall: 0.0585
+occupation fbeta: 0.1106
 ----------------
 Feature Class: Machine-op-inspct
 occupation precision: 1.0000
-occupation recall: 0.0256
-occupation fbeta: 0.0500
+occupation recall: 0.0000
+occupation fbeta: 0.0000
 ----------------
-Feature Class: Adm-clerical
-occupation precision: 1.0000
-occupation recall: 0.0556
-occupation fbeta: 0.1053
-----------------
-Feature Class: Exec-managerial
-occupation precision: 0.8625
-occupation recall: 0.4047
-occupation fbeta: 0.5509
+Feature Class: Farming-fishing
+occupation precision: 0.0000
+occupation recall: 0.0000
+occupation fbeta: 0.0000
 ----------------
 Feature Class: Handlers-cleaners
 occupation precision: 1.0000
 occupation recall: 0.0000
 occupation fbeta: 0.0000
 ----------------
-Feature Class: Farming-fishing
-occupation precision: 0.6667
-occupation recall: 0.0952
-occupation fbeta: 0.1667
-----------------
-Feature Class: Protective-serv
+Feature Class: Tech-support
 occupation precision: 1.0000
-occupation recall: 0.0930
-occupation fbeta: 0.1702
+occupation recall: 0.0492
+occupation fbeta: 0.0938
 ----------------
 Feature Class: Priv-house-serv
 occupation precision: 1.0000
@@ -78,46 +78,46 @@ occupation fbeta: 1.0000
 Performance Metrics for slice workclass 
 
 Feature Class: Private
-workclass precision: 0.8813
-workclass recall: 0.2044
-workclass fbeta: 0.3319
-----------------
-Feature Class: State-gov
-workclass precision: 0.8333
-workclass recall: 0.3226
-workclass fbeta: 0.4651
+workclass precision: 0.9275
+workclass recall: 0.1762
+workclass fbeta: 0.2961
 ----------------
 Feature Class: Local-gov
-workclass precision: 0.8182
-workclass recall: 0.2348
-workclass fbeta: 0.3649
+workclass precision: 0.7000
+workclass recall: 0.1333
+workclass fbeta: 0.2240
 ----------------
 Feature Class: ?
 workclass precision: 1.0000
-workclass recall: 0.0833
-workclass fbeta: 0.1538
-----------------
-Feature Class: Self-emp-not-inc
-workclass precision: 0.7143
-workclass recall: 0.1724
-workclass fbeta: 0.2778
-----------------
-Feature Class: Self-emp-inc
-workclass precision: 0.8727
-workclass recall: 0.4404
-workclass fbeta: 0.5854
+workclass recall: 0.0750
+workclass fbeta: 0.1395
 ----------------
 Feature Class: Federal-gov
-workclass precision: 1.0000
-workclass recall: 0.1294
-workclass fbeta: 0.2292
+workclass precision: 0.9333
+workclass recall: 0.2029
+workclass fbeta: 0.3333
 ----------------
-Feature Class: Never-worked
+Feature Class: Self-emp-not-inc
+workclass precision: 0.8000
+workclass recall: 0.2192
+workclass fbeta: 0.3441
+----------------
+Feature Class: Self-emp-inc
+workclass precision: 0.9394
+workclass recall: 0.4627
+workclass fbeta: 0.6200
+----------------
+Feature Class: State-gov
+workclass precision: 1.0000
+workclass recall: 0.2000
+workclass fbeta: 0.3333
+----------------
+Feature Class: Without-pay
 workclass precision: 1.0000
 workclass recall: 1.0000
 workclass fbeta: 1.0000
 ----------------
-Feature Class: Without-pay
+Feature Class: Never-worked
 workclass precision: 1.0000
 workclass recall: 1.0000
 workclass fbeta: 1.0000
