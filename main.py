@@ -1,11 +1,10 @@
 # Put the code for your API here.
-
-
 import logging
 import pickle
 import os
 from typing import List
 import pandas as pd
+
 # BaseModel from Pydantic is used to define data objects.
 from pydantic import BaseModel, Field
 from fastapi import FastAPI
@@ -15,7 +14,6 @@ from starter.ml.data import process_data
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
-
 
 # load our model artifacts
 root_path = os.path.join(os.getcwd())
@@ -32,18 +30,38 @@ lb = pickle.load(open(os.path.join(root_path, 'model') + filename, 'rb'))
 class InputSchema(BaseModel):
     age: int
     workclass: str
-    fnlgt: int
+    fnlgt: float
     education: str
-    education_num: int = Field(alias="education-num")
-    marital_status: str = Field(alias="marital-status")
+    education_num: int = Field(None, alias="education-num")
+    marital_status: str = Field(None, alias="marital-status")
     occupation: str
     relationship: str
     race: str
     sex: str
-    capital_gain: float = Field(alias="capital-gain")
-    capital_loss: float = Field(alias="capital-loss")
-    hours_per_week: int = Field(alias="hours-per-week")
-    native_country: str = Field(alias="native-country")
+    capital_gain: float = Field(None, alias="capital-gain")
+    capital_loss: float = Field(None, alias="capital-loss")
+    hours_per_week: int = Field(None, alias="hours-per-week")
+    native_country: str = Field(None, alias="native-country")
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "age": 20,
+                "workclass": "State-gov",
+                "fnlgt": 77516,
+                "education": "Bachelors",
+                "education-num": 0,
+                "marital-status": "Never-married",
+                "occupation": "Adm-clerical",
+                "relationship": "Not-in-family",
+                "race": "White",
+                "sex": "Male",
+                "capital-gain": 0.0,
+                "capital-loss": 0.0,
+                "hours-per-week": 40.0,
+                "native-country": "United-States"
+            }
+        }
 
 
 class MultipleDataInputs(BaseModel):
@@ -85,10 +103,13 @@ async def say_hello():
 
 
 @app.post("/predict")
-async def predict(item: MultipleDataInputs):
-    input_df = pd.DataFrame(jsonable_encoder(item.inputs))
+async def predict(item: InputSchema):
+    # Convert input data into a dictionary
+    # https://stackoverflow.com/questions/71474569/response-500-dict-to-pandas-dataframe
+    # Convert the dictionary into a dataframe
+    df_pred = pd.DataFrame(jsonable_encoder(item), index=["value"])
     data_pred, _, _, _ = process_data(
-        input_df, categorical_features=[
+        df_pred, categorical_features=[
             "workclass",
             "education",
             "marital-status",
@@ -98,9 +119,5 @@ async def predict(item: MultipleDataInputs):
             "sex",
             "native-country"], label=None, training=False, encoder=encoder, lb=lb)
 
-    predictions = '<=50k' if model.predict(data_pred)[0] == 0 else '>50k'
+    predictions = '<=50k' if str(model.predict(data_pred)[0]) == '0' else '>50k'
     return {"prediction": predictions}
-
-
-if __name__ == "__main__":
-    print(model.feature_names_in_)
