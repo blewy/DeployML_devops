@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
 # load our model artifacts
-root_path = os.path.join(os.getcwd())
+root_path = os.path.dirname(os.path.realpath(__file__)) 
 logger.info("Uploading model artifacts")
 filename = '/gbm_model.pickle'
 model = pickle.load(open(os.path.join(root_path, 'model') + filename, 'rb'))
