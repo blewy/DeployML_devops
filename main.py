@@ -15,16 +15,6 @@ from starter.ml.data import process_data
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
-# load our model artifacts
-root_path = os.path.dirname(os.path.realpath(__file__)) 
-logger.info("Uploading model artifacts")
-filename = '/gbm_model.pickle'
-model = pickle.load(open(os.path.join(root_path, 'model') + filename, 'rb'))
-filename = '/model_encoder.pickle'
-encoder = pickle.load(open(os.path.join(root_path, 'model') + filename, 'rb'))
-filename = '/label_encoder.pickle'
-lb = pickle.load(open(os.path.join(root_path, 'model') + filename, 'rb'))
-
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system("dvc config core.no_scm true")
     os.system('rm -rf .dvc/cache')
@@ -33,6 +23,16 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
     if os.system("dvc pull") != 0:
         exit("dvc pull failed")
     os.system("rm -rf .dvc .apt/usr/lib/dvc")
+
+# load our model artifacts
+root_path = os.path.dirname(os.path.realpath(__file__))
+logger.info("Uploading model artifacts")
+filename = '/gbm_model.pickle'
+model = pickle.load(open(os.path.join(root_path, 'model') + filename, 'rb'))
+filename = '/model_encoder.pickle'
+encoder = pickle.load(open(os.path.join(root_path, 'model') + filename, 'rb'))
+filename = '/label_encoder.pickle'
+lb = pickle.load(open(os.path.join(root_path, 'model') + filename, 'rb'))
 
 
 # Declare the data object with its components and their type.
