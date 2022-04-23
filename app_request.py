@@ -15,9 +15,7 @@ if __name__ == "__main__":
         "capital-gain": 0.0,
         "capital-loss": 0.0,
         "hours-per-week": 45.0,
-        "native-country": "United-States"
-    }
-
+        "native-country": "United-States"}
     response = requests.post(url='https://salarypredictionudacity.herokuapp.com/predict', json=data,
                              headers={"Content-Type": "application/json; charset=utf-8"})
     print(response.status_code)
