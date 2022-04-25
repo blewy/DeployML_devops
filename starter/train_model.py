@@ -23,7 +23,7 @@ root_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 data = pd.read_csv(os.path.join(root_path, 'data') + "/census_clean.csv")
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-logger.info("Spliting Data")
+logger.info("Splitting Data")
 train, test = train_test_split(data, test_size=0.20, random_state=0)
 
 cat_features = [
@@ -40,7 +40,7 @@ logger.info("Preprocessing Data")
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True
 )
-logger.info("Trained columns from Data", train.columns)
+logger.info("Trained columns from Data", list(train.columns))
 # Proces the test data with the process_data function.
 
 # Train and save a model.
@@ -66,6 +66,8 @@ pred_test = inference(model, X_test)
 logger.info("Performance Metrics")
 precision, recall, fbeta = compute_model_metrics(y_test, pred_test)
 logger.info("Test precision: %s", precision)
+logger.info("Test recall: %s", recall)
+logger.info("Test fbeta: %s", fbeta)
 
 logger.info("Performance Metrics for slice")
 file_path = '/slice_output.txt'
